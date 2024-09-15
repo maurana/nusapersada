@@ -1,4 +1,4 @@
-# Nusapersada
+# Nusapersada ![Indonesia](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/36/country-4x3/si.png "Indonesia")
 Full Stack Apps
 
 > [!IMPORTANT]\
@@ -11,6 +11,7 @@ Full Stack Apps
   <a><img src="https://img.shields.io/badge/v3.14.0-restframework-red?logo=python" alt="DjangoRestFramework"></a>
   <a><img src="https://img.shields.io/badge/v5.0.3-django-teal?logo=django" alt="Django"></a>
   <a><img src="https://img.shields.io/badge/PostgreSQL v16.4.1-316192?logo=postgresql&logoColor=white" alt="Postgres"></a>
+  <a><img src="https://img.shields.io/badge/v2024.1-kalilinux-purple?logo=kalilinux" alt="Kali Linux OS"></a>
 </p>
 
 > Installation
