@@ -1,0 +1,112 @@
+[
+    {
+        "pk": 1,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Ultra Phone",
+            "products_code": "00000000",
+            "products_price": 9999.9,
+            "products_stock": 5000,
+            "products_status": "Hold"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Samsung Galaxy",
+            "products_code": "11111111",
+            "products_price": 8000,
+            "products_stock": 5000,
+            "products_status": "0"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Esia Hidayah",
+            "products_code": "22222222",
+            "products_price": 7000.77,
+            "products_stock": 0,
+            "products_status": "Hold"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Nokia Lumia",
+            "products_code": "33333333",
+            "products_price": 6000,
+            "products_stock": 5000,
+            "products_status": "0"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Xiaomi Redmi",
+            "products_code": "44444444",
+            "products_price": 5000.50,
+            "products_stock": 5000,
+            "products_status": "0"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Iphone 17 ProMax",
+            "products_code": "55555555",
+            "products_price": 4000.25,
+            "products_stock": 5000,
+            "products_status": "0"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Realme G7",
+            "products_code": "77777777",
+            "products_price": 3000.100,
+            "products_stock": 0,
+            "products_status": "0"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Sony XYZ",
+            "products_code": "66666666",
+            "products_price": 2000,
+            "products_stock": 5000,
+            "products_status": "0"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Oppo A39",
+            "products_code": "88888888",
+            "products_price": 1000,
+            "products_stock": 5000,
+            "products_status": "0"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "v1.products",
+        "fields": { 
+            "products_name": "Vivo Y17",
+            "products_code": "99999999",
+            "products_price": 1000,
+            "products_stock": 5000,
+            "products_status": "0"
+        }
+    }
+]
