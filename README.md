@@ -5,12 +5,12 @@ Full Stack Apps
 > TECHNOLOGY STACK :
 <p align="left">
   <a><img src="https://img.shields.io/badge/v20.17.0-node-importantyellow?logo=nodedotjs" alt="NodeJs"></a>
-  <a><img src="https://img.shields.io/badge/v3.4.29-vue-green?logo=vue" alt="VueJs"></a>
+  <a><img src="https://img.shields.io/badge/v3.4.29-vue-green?logo=vuejs" alt="VueJs"></a>
   <a><img src="https://img.shields.io/badge/v5.3.1-vite-blueviolet?logo=vite" alt="ViteJs"></a>
   <a><img src="https://img.shields.io/badge/v3.4.10-tailwind-yellow?logo=tailwindcss" alt="TailwindCss"></a>
   <a><img src="https://img.shields.io/badge/v3.14.0-restframework-red?logo=python" alt="DjangoRestFramework"></a>
   <a><img src="https://img.shields.io/badge/v5.0.3-django-teal?logo=django" alt="Django"></a>
-  <a><img src="https://img.shields.io/badge/v16.4-1-postgresql-blue?logo=postgres" alt="Postgres"></a>
+  <a><img src="https://img.shields.io/badge/v16.4-1-postgresql-blue?logo=postgresql" alt="Postgres"></a>
 </p>
 
 > Installation
