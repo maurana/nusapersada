@@ -10,7 +10,7 @@ Full Stack Apps
   <a><img src="https://img.shields.io/badge/v3.4.10-tailwind-yellow?logo=tailwindcss" alt="TailwindCss"></a>
   <a><img src="https://img.shields.io/badge/v3.14.0-restframework-red?logo=python" alt="DjangoRestFramework"></a>
   <a><img src="https://img.shields.io/badge/v5.0.3-django-teal?logo=django" alt="Django"></a>
-  <a><img src="https://img.shields.io/badge/v16.4-1-postgresql-blue?logo=postgresql" alt="Postgres"></a>
+  <a><img src="https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white" alt="Postgres"></a>
 </p>
 
 > Installation
