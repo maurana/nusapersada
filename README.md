@@ -39,11 +39,11 @@ Frontend
 
 Backend
 ```bash
-> (venv) python manage.py runserver
+> (venv) python3 manage.py runserver
 ```
 Frontend
 ```bash
 > npm run dev OR yarn run dev
 ```
 
-Open a browser and access the aplication at http://localhost:5173/
+Open a browser and access the web app at http://localhost:5173/
