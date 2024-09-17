@@ -118,7 +118,19 @@ export default {
     handleSearch(value) {
       this.parameters.params[0].keyword = value
       this.salesList()
-    }
+    },
+    // handleValueStartDate(value) {
+    //   console.log(value)
+    //   this.parameters.params[0].data_periode_start = value
+    // },
+    // handleValueEndDate(value) {
+    //   console.log(value)
+    //   this.parameters.params[0].data_periode_end = value
+    // },
+    // handleDateRange() {
+    //   console.log(this.parameters.params[0].data_periode_start)
+    //   console.log(this.parameters.params[0].data_periode_end)
+    // }
   },
   mounted() {
     initFlowbite()
@@ -131,10 +143,10 @@ export default {
 
 <template>
   <main>
-      <div class="max-w-screen-xl relative w-full container mx-auto grid grid-cols-12">
-      <div class="report mt-3 flex flex-row flex-wrap gap-3">
-        <div class="flex-col flex-wrap basis-5/12">
-          <div class="max-w-xl w-full justify-center item-center bg-white rounded-lg shadow dark:bg-gray-800">
+      <div class="max-w-screen-xl relative w-full container mx-auto md:grid md:grid-cols-12">
+      <div class="report w-full mt-3 md:flex md:flex-row md:flex-wrap gap-3">
+        <div class="md:flex-col md:flex-wrap md:basis-5/12">
+          <div class="max-w-xl w-full md:justify-center md:item-center bg-white rounded-lg shadow dark:bg-gray-800">
           <div class="flex justify-between p-4 md:p-6 pb-0 md:pb-0">
             <div>
               <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-2">Rp {{ amount.toFixed(3) }}</h5>
@@ -152,7 +164,7 @@ export default {
           </div>
           
           <div class="w-full bg-white rounded-lg shadow dark:bg-gray-800 mt-3 mb-3 p-3">
-            <div class="relative overflow-x-auto">
+            <div class="relative overflow-x-auto md:overflow-hidden">
                 <div class="flex items-center py-0.5 text-base font-semibold text-gray-800 mb-3 mt-2">Products Popular</div>
                 <table class="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-3 mb-3">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -200,13 +212,13 @@ export default {
 
         <div class="w-full-md basis-6/12">
           <div class="bg-white shadow rounded-lg bg-clip-border p-6 mb-3">
-            <div class="relative">
+            <div class="relative overflow-x-auto">
                 <div class="flex items-center py-0.5 text-base font-semibold text-gray-800 mb-3">History Transaction</div>
 
-                  <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white">
+                  <div class="justify-between md:flex md:items-center md:justify-center space-y-4 md:space-y-0 pb-4 bg-white">
                     <div class="inline-flex">
-                        <div class="relative">
-                        <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none ml-3">
+                      <div class="relative">
+                        <div class="absolute inset-y-0 inset-x-0 start-0 flex mt-3 ps-3 pointer-events-none ml-3 sm:items-center">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                             </svg>
@@ -245,29 +257,31 @@ export default {
                       </div>
 
                       <!-- <div class="ml-2">
-                        <button id="daterangeActionButton" data-dropdown-toggle="daterangeAction" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 font-medium rounded-lg text-sm px-3 py-2" type="button">
+                        <button id="daterangeActionButton" data-dropdown-toggle="daterangeAction" data-dropdown-ignore-click-outside-class="datepicker" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 font-medium rounded-lg text-sm px-3 py-2" type="button">
                             <span class="sr-only">Action button</span>
-                            Date Range
+                            Date
                             <svg class="ml-1 w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                             </svg>
                         </button>
-                        <div id="daterangeAction" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <div id="daterangeAction" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 p-2">
                             <div id="date-range-picker" date-rangepicker class="flex items-center gap-2">
-                                <div class="relative">
-                                <input id="datepicker-range-start" name="start" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-32 ps-10 p-2" placeholder="Select date start">
+                                <div class="relative group">
+                                <input id="datepicker-range-start" type="text" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Select date start" :value="parameters.params[0].data_periode_start" @input="handleValueStartDate($event.target.value)">
                                 </div>
                                 <span class="text-gray-500">to</span>
-                                <div class="relative w-32">
-                                <input id="datepicker-range-end" name="end" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-32 ps-10 p-2" placeholder="Select date end">
+                                <div class="relative group">
+                                <input id="datepicker-range-end" type="text" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Select date end" :value="parameters.params[0].data_periode_end" @input="handleValueEndDate(event.target.value)">
                                 </div>
+                                <span class="text-gray-500"><button @click="handleDateRange()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button></span>
                             </div>
                         </div>
                       </div> -->
+
                     </div>
 
                     <div class="relative">
-                      <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Create Data</button>
+                      <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-2" >Create Data</button>
                     </div>
                 </div>
 
@@ -365,7 +379,7 @@ export default {
                         
                     </tbody>
                 </table>
-                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 mb-3" aria-label="Table navigation">
                     <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-white">{{ links.start }}-{{ links.next }}</span> of <span class="font-semibold text-gray-900 dark:text-white">{{ total_data }}</span></span>
                     <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                         <li>
@@ -413,7 +427,7 @@ export default {
             <div class="flex items-center justify-between">
                 <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://thisismaulana.vercel.app/" class="hover:underline">Maulana™</a>. All Rights Reserved.
                 </span>
-                <div class="flex mt-4 sm:justify-center sm:mt-0">
+                <div class="flex sm:justify-center">
                   <span class="text-sm text-green-500 sm:text-center dark:text-gray-400">
                     Software v1.0.0
                   </span>
