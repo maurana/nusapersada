@@ -93,14 +93,21 @@ export default {
     },
     productpopularList() {
       this.parameters.params[0].total_data_show = 5
+      this.parameters.params[0].data_periode_start = "08/09/2024"
+      this.parameters.params[0].data_periode_end = "12/09/2024"
       PopularService.getAll(this.parameters)
         .then(res => {
           this.dt_popular = res.data.data
-          this.parameters.params[0].total_data_show = 10
+          this.resetParams()
         })
         .catch(e => {
           console.log(e)
         })
+    },
+    resetParams() {
+      this.parameters.params[0].total_data_show = 10
+      this.parameters.params[0].data_periode_start = ""
+      this.parameters.params[0].data_periode_end = ""
     },
     handlePagination(index, type, total) {
       this.page = index
@@ -250,7 +257,7 @@ export default {
                             </div>
                         </div>
                       </div>
-                      <div class="ml-2">
+                      <!-- <div class="ml-2">
                         <button id="daterangeActionButton" data-dropdown-toggle="daterangeAction" data-dropdown-ignore-click-outside-class="datepicker" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 font-medium rounded-lg text-sm px-3 py-2" type="button">
                             <span class="sr-only">Action button</span>
                             Date
@@ -270,7 +277,7 @@ export default {
                                 <span class="text-gray-500"><button @click="handleDateRange()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button></span>
                             </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="relative">
                       <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-2 btn-block" >Create Data</button>
