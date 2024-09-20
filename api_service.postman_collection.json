@@ -556,6 +556,42 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Comparison",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"params\": [\n    {\n      \"keyword\": \"\",\n      \"date_1\": \"09/09/2024\",\n      \"date_2\": \"10/09/2024\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/sales_comparison",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"sales_comparison"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

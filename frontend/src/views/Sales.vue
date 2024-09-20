@@ -120,7 +120,8 @@ export default {
       this.salesList()
     },
     // handleValueStartDate(value) {
-    //   console.log(value)
+    //   val = document.getElementById("datepicker-range-start").value 
+    //   console.log(val)
     //   this.parameters.params[0].data_periode_start = value
     // },
     // handleValueEndDate(value) {
@@ -161,8 +162,7 @@ export default {
             </div>
           </div>
           <apexchart class="px-2.5 max-w-xl w-full" type="area" :options="chart" :series="chart.series" />
-          </div>
-          
+          </div>   
           <div class="w-full bg-white rounded-lg shadow dark:bg-gray-800 mt-3 mb-3 p-3">
             <div class="relative overflow-x-auto md:overflow-hidden">
                 <div class="flex items-center py-0.5 text-base font-semibold text-gray-800 mb-3 mt-2">Products Popular</div>
@@ -206,17 +206,13 @@ export default {
                 </table>
             </div>
           </div>
-
         </div>
-        
-
         <div class="w-full-md basis-6/12">
           <div class="bg-white shadow rounded-lg bg-clip-border p-6 mb-3">
             <div class="relative overflow-x-auto">
                 <div class="flex items-center py-0.5 text-base font-semibold text-gray-800 mb-3">History Transaction</div>
-
-                  <div class="justify-between md:flex md:items-center md:justify-center space-y-4 md:space-y-0 pb-4 bg-white">
-                    <div class="inline-flex">
+                  <div class="justify-between md:flex md:items-center space-y-4 md:space-y-0 pb-4 bg-white">
+                    <div class="inline-flex md:flex-row-reverse" >
                       <div class="relative">
                         <div class="absolute inset-y-0 inset-x-0 start-0 flex mt-3 ps-3 pointer-events-none ml-3 sm:items-center">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -225,7 +221,6 @@ export default {
                         </div>
                         <input :value="parameters.params[0].keyword" @input="event => handleSearch(event.target.value)" type="text" id="table-search-users" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50" placeholder="">
                       </div>
-
                       <div class="ml-2">
                         <button id="rowsActionButton" data-dropdown-toggle="rowsAction" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 font-medium rounded-lg text-sm px-3 py-2" type="button">
                             <span class="sr-only">Action button</span>
@@ -255,8 +250,7 @@ export default {
                             </div>
                         </div>
                       </div>
-
-                      <!-- <div class="ml-2">
+                      <div class="ml-2">
                         <button id="daterangeActionButton" data-dropdown-toggle="daterangeAction" data-dropdown-ignore-click-outside-class="datepicker" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 font-medium rounded-lg text-sm px-3 py-2" type="button">
                             <span class="sr-only">Action button</span>
                             Date
@@ -276,15 +270,12 @@ export default {
                                 <span class="text-gray-500"><button @click="handleDateRange()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button></span>
                             </div>
                         </div>
-                      </div> -->
-
+                      </div>
                     </div>
-
                     <div class="relative">
-                      <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-2" >Create Data</button>
+                      <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-2 btn-block" >Create Data</button>
                     </div>
                 </div>
-
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-3">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -376,7 +367,6 @@ export default {
                                 </div>
                             </td>
                         </tr>
-                        
                     </tbody>
                 </table>
                 <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 mb-3" aria-label="Table navigation">
@@ -395,7 +385,6 @@ export default {
                 </nav>
             </div>
           </div>
-
           <!-- <div id="modal-delete" data-modal-placement="top-right" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -420,7 +409,6 @@ export default {
           </div> -->
         </div>
       </div>
-
       <footer class="">
           <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <hr class="mb-6 border-gray-200 mx-auto dark:border-gray-700" />
@@ -435,7 +423,6 @@ export default {
             </div>
           </div>
       </footer>
-
      </div>
   </main>
 </template>

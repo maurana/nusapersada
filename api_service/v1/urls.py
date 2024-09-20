@@ -14,6 +14,7 @@ urlpatterns = [
     path('sales', SalesList.as_view()),
     path('sales_create', SalesCreate.as_view()),
     path('sales_chart', SalesChart.as_view()),
+    path('sales_comparison', SalesComparison.as_view()),
     path('sales/<int:pk>', SalesDetail.as_view()),
     path('sale_items', Sale_ItemsList.as_view()),
     path('sale_items/<int:pk>', Sale_ItemsDetail.as_view()),
