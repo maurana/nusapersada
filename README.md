@@ -47,3 +47,5 @@ Frontend
 ```
 
 Open a browser and access the web app at http://localhost:5173/
+
+![View](/view.png)
