@@ -24,7 +24,6 @@ class SalesList(APIView):
             date_start = datetime.strptime(params["data_periode_start"],'%d/%m/%Y').strftime('%Y-%m-%d')
             date_end = datetime.strptime(params["data_periode_end"],'%d/%m/%Y').strftime('%Y-%m-%d')
             queryset = Sales.objects.values('customers_id','sales_code','sales_date', 'sale_items_total', 'sale_price_total').annotate(customers_name=Subquery(Customers.objects.filter(customers_id=OuterRef('customers_id')).order_by('customers_id').values('customers_name')[:1])).filter(Q(sales_code__contains=params["keyword"]) | Q(customers_name__contains=params["keyword"])).filter(sales_date__range=[date_start, date_end])
-            
         pg = Paginator(queryset, params["total_data_show"], allow_empty_first_page=True)
         page_number = request.GET.get("page")
         page_obj = pg.page(page_number)
@@ -105,7 +104,6 @@ class SalesChart(APIView):
             sales.append(Sales.objects.filter(sales_date=dates[i]["date"]).count())
             items.append(list(Sales.objects.filter(sales_date=dates[i]["date"]).aggregate(Sum("sale_items_total")).values())[0])
             prices.append(list(Sales.objects.filter(sales_date=dates[i]["date"]).aggregate(Sum("sale_price_total")).values())[0])
-        
         percentage = (len([ele for ele in prices if ele > 0]) / len(prices)) * 100
         amount = Sales.objects.filter(sales_date__in=arr_date).aggregate(Sum("sale_price_total")).values()
         response = {
@@ -116,20 +114,24 @@ class SalesChart(APIView):
             "categories": arr_date,
             "amount": list(amount)[0]
         }
-        
         return Response(response)
 
 class SalesComparison(APIView):
     def get(self, request, format=None):
-        date_1_rows, date_2_rows = [],[]
         params = request.data["params"][0]
-        date_1 = Sales.objects.values('sale_price_total').filter(sales_date=datetime.strptime(params["date_1"],'%d/%m/%Y').strftime('%Y-%m-%d')).order_by('sales_id')
-        date_2 = Sales.objects.values('sale_price_total').filter(sales_date=datetime.strptime(params["date_2"],'%d/%m/%Y').strftime('%Y-%m-%d')).order_by('sales_id')
-        for i in range(0, len(date_1)):
-            date_1_rows.append({"time": i+1, "total": date_1[i]["sale_price_total"]})
-        for i in range(0, len(date_2)):
-            date_2_rows.append({"time": i+1, "total": date_2[i]["sale_price_total"]})
-        return Response({"params": request.data["params"],"data": {"date_1_rows": date_1_rows, "date_2_rows": date_2_rows}})
+        date_all_rows, date_1_rows, date_2_rows = [],[],[]
+        if params["date_1"] != "" and params["date_2"] != "":
+            date_1 = Sales.objects.values('sale_price_total').filter(sales_date=datetime.strptime(params["date_1"],'%d/%m/%Y').strftime('%Y-%m-%d')).order_by('sales_id')
+            date_2 = Sales.objects.values('sale_price_total').filter(sales_date=datetime.strptime(params["date_2"],'%d/%m/%Y').strftime('%Y-%m-%d')).order_by('sales_id')
+            for i in range(0, len(date_1)):
+                date_1_rows.append({"time": i+1, "total": date_1[i]["sale_price_total"]})
+            for i in range(0, len(date_2)):
+                date_2_rows.append({"time": i+1, "total": date_2[i]["sale_price_total"]})
+            return Response({"params": request.data["params"],"data": {"date_1_rows": date_1_rows, "date_2_rows": date_2_rows}})
+        date_all = Sales.objects.values('sale_price_total').order_by('sales_id')
+        for i in range(0, len(date_all)):
+            date_all_rows.append({"time": i+1, "total": date_all[i]["sale_price_total"]})
+        return Response({"params": request.data["params"],"data": date_all_rows})
 
 class SalesDetail(APIView):
 
@@ -160,4 +162,3 @@ class SalesDetail(APIView):
         sales = self.get_object(pk)
         sales.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-

@@ -21,7 +21,6 @@ class CustomersList(generics.ListCreateAPIView):
             queryset = Customers.objects.filter(pk__in=ids)
         else:
             queryset = Customers.objects.all()
-
         return queryset
     
     def list(self, request):
